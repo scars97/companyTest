@@ -4,7 +4,7 @@
 <%@ page import="hrd_test.DBConnect" %>	
 
 <%
-	String sql = "select teacher_code,teacher_name,class_name,class_price,teacher_regist_date from tbl_teacher_202201";
+	String sql = "select teacher_code,teacher_name,class_name,to_char(class_price, $999,999)class_price,to_char(teacher_regist_date, 'yyyy"년"mm"월"dd"일"')teacher_regist_date from tbl_teacher_202201";
 	Connection conn = DBConnect.getConnection();
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	ResultSet rs = pstmt.executeQuery();
